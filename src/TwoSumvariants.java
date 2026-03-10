@@ -1,6 +1,8 @@
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 public class TwoSumvariants {
 
@@ -53,7 +55,18 @@ public class TwoSumvariants {
         return new int[]{};
     }
 
-
-
+    public static HashSet<List<Integer>> uniqueTwoSumPairs(int[] arr, int target) {
+        if (arr == null || arr.length == 0) return new HashSet<>();
+        HashSet<Integer> seen = new HashSet<>();
+        HashSet<List<Integer>> sums = new HashSet<>();
+        for (int num : arr) {
+            int complement = target - num;
+            if (seen.contains(complement)) {
+                sums.add(Arrays.asList(Math.min(num, complement), Math.max(num, complement)));
+            }
+            seen.add(num);
+        }
+        return sums;
+    }
 
 }
