@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-public class TwoSumvariants {
+public class ArraySumAndSubArrayProblems {
 
     public static void main(String[] args)
     {
@@ -64,6 +64,7 @@ public class TwoSumvariants {
         return uniqueSums;
     }
 
+
     public static int countUniquePairs(int[] arr, int target) {
         if (arr == null || arr.length == 0) return 0;
         HashSet<Integer> seen = new HashSet<>();
@@ -92,27 +93,10 @@ public class TwoSumvariants {
         return false; // no subarray found
     }
 
-    public static int[] subarraySumIndices(int[] arr, int target) {
-
-        HashMap<Integer, Integer> map = new HashMap<>();
-        map.put(0, -1);
-        int currSum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            currSum += arr[i];
-            if (map.containsKey(currSum - target)) {
-
-                int start = map.get(currSum - target) + 1;
-                return new int[]{start, i};
-
-            }
-            map.put(currSum, i);
-        }
-        return new int[]{};
-    }
-
-    
+    // Return SubArray That Sums To Target
     public static int[] subArrayToTarget(int[] arr, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
+        // Each key is a PREFIX Sum
         map.put(0, -1);
         int currSum = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -124,5 +108,14 @@ public class TwoSumvariants {
             map.put(currSum, i);
         }
         return new int[]{};
+    }
+
+    public static int[] removeDuplicates(int[] arr) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : arr) set.add(num);
+        int[] cleanArr = new int[set.size()];
+        int i = 0;
+        for (int num : set) cleanArr[i++] = num;
+        return cleanArr;
     }
 }
