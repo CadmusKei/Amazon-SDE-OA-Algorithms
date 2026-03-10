@@ -1,17 +1,12 @@
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class TwoSumvariants {
 
     public static void main(String[] args)
     {
         int[] arr = {1, 5, 7, 8, 3, 9, 12, 4};
-
         System.out.println((hasPair(arr, 10)));
-
     }
 
     public static int[] twoSum(int[] arr, int target) {
@@ -58,15 +53,76 @@ public class TwoSumvariants {
     public static HashSet<List<Integer>> uniqueTwoSumPairs(int[] arr, int target) {
         if (arr == null || arr.length == 0) return new HashSet<>();
         HashSet<Integer> seen = new HashSet<>();
-        HashSet<List<Integer>> sums = new HashSet<>();
+        HashSet<List<Integer>> uniqueSums = new HashSet<>();
         for (int num : arr) {
             int complement = target - num;
             if (seen.contains(complement)) {
-                sums.add(Arrays.asList(Math.min(num, complement), Math.max(num, complement)));
+                uniqueSums.add(Arrays.asList(Math.min(num, complement), Math.max(num, complement)));
             }
             seen.add(num);
         }
-        return sums;
+        return uniqueSums;
     }
 
+    public static int countUniquePairs(int[] arr, int target) {
+        if (arr == null || arr.length == 0) return 0;
+        HashSet<Integer> seen = new HashSet<>();
+        HashSet<List<Integer>> uniqueSums = new HashSet<>();
+        for (int num : arr) {
+            int complement = target - num;
+            if (seen.contains(complement)) {
+                uniqueSums.add(Arrays.asList(Math.min(num, complement), Math.max(num, complement)));
+            }
+            seen.add(num);
+        }
+        return uniqueSums.size();
+    }
+
+    public static boolean hasSubarraySum(int[] arr, int target) {
+        HashMap<Integer, Integer> prefixSumMap = new HashMap<>();
+        prefixSumMap.put(0, -1);
+        int currSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            currSum += arr[i];
+            if (prefixSumMap.containsKey(currSum - target)) {
+                return true;
+            }
+            prefixSumMap.put(currSum, i);
+        }
+        return false; // no subarray found
+    }
+
+    public static int[] subarraySumIndices(int[] arr, int target) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        int currSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            currSum += arr[i];
+            if (map.containsKey(currSum - target)) {
+
+                int start = map.get(currSum - target) + 1;
+                return new int[]{start, i};
+
+            }
+            map.put(currSum, i);
+        }
+        return new int[]{};
+    }
+
+    
+    public static int[] subArrayToTarget(int[] arr, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, -1);
+        int currSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            currSum += arr[i];
+            if (map.containsKey(currSum - target)) {
+                int start = (currSum - target) + 1;
+                return new int[]{start, i};
+            }
+            map.put(currSum, i);
+        }
+        return new int[]{};
+    }
 }
