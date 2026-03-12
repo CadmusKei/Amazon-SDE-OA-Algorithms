@@ -37,6 +37,7 @@ public class IslandCountingAndNeighbours {
 
                 if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
                     System.out.print(grid[newRow][newCol] + " ");
+
                 }
 
             }
