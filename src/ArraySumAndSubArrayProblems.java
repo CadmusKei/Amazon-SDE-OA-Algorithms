@@ -9,7 +9,7 @@ public class ArraySumAndSubArrayProblems {
         System.out.println((hasPair(arr, 10)));
     }
 
-    public static int[] twoSum(int[] arr, int target) {
+    private static int[] twoSum(int[] arr, int target) {
         if (arr == null || arr.length <= 0) return new int[]{};
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < arr.length; i++)
