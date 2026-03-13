@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-public class ArraySumAndSubArrayProblems {
+public class TwoSumArrayAndSubarray {
 
     public static void main(String[] args)
     {

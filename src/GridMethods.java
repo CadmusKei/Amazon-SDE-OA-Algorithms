@@ -1,7 +1,9 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class GridClassPractice {
+// Reminder: Add print neighbour method
+
+public class GridMethods {
 
     private static class Grid {
 
