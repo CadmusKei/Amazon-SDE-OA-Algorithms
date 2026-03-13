@@ -6,10 +6,11 @@ public class GridClassPractice {
     private static class Grid {
 
         int[][] grid = {
-                {2, 1, 1, 1, 0},
-                {1, 1, 1, 0, 1},
-                {0, 0, 1, 1, 1},
-                {1, 1, 1, 0, 0}
+                {0, 0, 1, 0, 0},
+                {1, 0, 1, 0, 1},
+                {0, 0, 0, 0, 0},
+                {0, 1, 1, 1, 0},
+                {0, 0, 0, 1, 0}
         };
 
         int rows = grid.length;
@@ -106,16 +107,68 @@ public class GridClassPractice {
             return humans == 0 ? minutes : -1;
         }
 
-        
+        private int shortestPath(){
+
+            // Create queue and init steps
+            Queue<int[]> queue = new LinkedList<>();
+            int steps = 0;
+            // Keep track of visitors!
+            boolean[][] visited = new boolean[rows][cols];
+
+            // Make sure start and goal are valid.
+            if (grid[0][0] == 1 || grid[rows-1][cols-1] == 1) return -1;
+
+            // Vital Start steps.
+            // Add the top to queue for first wave
+            queue.add(new int[]{0,0});
+            // Mark as visited to stop backtracking (Minor effic)
+            visited[0][0] = true;
+
+            // Set direction vairants
+            int[] dr = {-1, 1, 0, 0};
+            int[] dc = {0, 0, -1, 1};
+
+            while (!queue.isEmpty()) {
+                int size = queue.size();
+
+                for (int s = 0; s < size; s++) {
+
+                    int[] currentPos = queue.poll();
+                    int r = currentPos[0];
+                    int c = currentPos[1];
+
+                    if (r == rows-1 && c == cols-1) return steps;
+
+                    for (int k = 0; k < 4; k++) {
+
+                        int nr = r + dr[k];
+                        int nc = c + dc[k];
+
+                        if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && !visited[nr][nc] && grid[nr][nc] == 0) {
+
+                            visited[nr][nc] = true;
+                            queue.add(new int[]{nr, nc});
+
+                        }
+                    }
+                }
+                // After processing 1 layer
+                steps++;
+            }
+            return -1;
+        }
+
     }
 
     public static void main(String[] args) {
         Grid grid = new Grid();
 
-//        grid.displayGrid();
+        grid.displayGrid();
 //        System.out.println(grid.maxIslandSize());
 //        int minutes = grid.spreadZombies();
 //        System.out.println("Map Infection took " + minutes + " minutes.");
+        int steps = grid.shortestPath();
+        System.out.println("The shortest path down from (0,0)  took: " + steps + " steps.");
 
     }
 }
