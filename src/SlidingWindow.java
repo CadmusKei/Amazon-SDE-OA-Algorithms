@@ -1,4 +1,14 @@
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
+
 public class SlidingWindow {
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 1};
+        int target = 11;
+        int minLen = minSubArrayLen(target, arr);
+    }
 
     // Find the max sum of a subarray with length k
     private int maxSumOf(int[] arr, int k) {
@@ -62,9 +72,37 @@ public class SlidingWindow {
         return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
 
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 1};
-        int target = 11;
-        int minLen = minSubArrayLen(target, arr);
+    // Consult this again!!!!
+
+    private int[] SlidingWindowMax(int[] nums, int k) {
+
+        if (nums == null || nums.length == 0) return new int[]{};
+
+        int n = nums.length;
+        // This is an efficient way of making space for exact number of results there will be.
+        int[] result = new int[n - k + 1];
+
+        Deque<Integer> dq = new ArrayDeque<>();
+        int ri = 0;
+
+        for (int i = 0; i < n; i++) {
+
+            while (!dq.isEmpty() && dq.peekFirst() < i - k + 1) {dq.pollFirst();}
+
+            while (!dq.isEmpty() && nums[dq.peekLast()] < nums[i]) {
+                dq.pollLast();
+            }
+
+            dq.offerLast(i);
+
+            if (i >= k - 1) { result[ri++] = nums[dq.peekFirst()]; }
+        }
+
+        return result;
+
     }
+
+
+
 }
+

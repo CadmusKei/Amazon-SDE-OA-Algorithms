@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b68ef38d-31ce-4259-8c35-08483dbb14a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CountingAndFrequency.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GridClassPractice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GridClassPractice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IslandCountingAndNeighbours.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OrangeBFS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/ArraySumAndSubArrayProblems.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/GridClassPractice$Grid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/GridClassPractice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/IslandCountingAndNeighbours$Grid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/IslandCountingAndNeighbours.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/OrangeBFS$Grid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/OrangeBFS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/SlidingWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/SlidingWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SlidingWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlidingWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +110,7 @@
       <workItem from="1773347313314" duration="6039000" />
       <workItem from="1773423423774" duration="64000" />
       <workItem from="1773423512561" duration="367000" />
-      <workItem from="1773424122717" duration="15338000" />
+      <workItem from="1773424122717" duration="20042000" />
     </task>
     <servers />
   </component>
