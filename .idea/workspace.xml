@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b68ef38d-31ce-4259-8c35-08483dbb14a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FrequencyAndGrouping.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/CountingAndFrequency.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/GridMethods$Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/GridMethods$Grid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/GridMethods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/GridMethods.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/PracticeGridMethods$Grid.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/PracticeGridMethods.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CountingAndFrequency.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GridMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GridMethods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PracticeGridMethods.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sketches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sketches.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,10 +56,12 @@
     "Application.CountingAndFrequency.executor": "Run",
     "Application.FrequencyAndGrouping.executor": "Run",
     "Application.GridClassPractice.executor": "Run",
+    "Application.GridMethods.executor": "Run",
     "Application.GridTraversal.executor": "Run",
     "Application.IslandDFS.executor": "Run",
     "Application.OrangeBFS.executor": "Run",
     "Application.PracticeGridMethods.executor": "Run",
+    "Application.Sketches.executor": "Run",
     "Application.SlidingWindow.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
@@ -114,7 +108,8 @@
       <workItem from="1773423423774" duration="64000" />
       <workItem from="1773423512561" duration="367000" />
       <workItem from="1773424122717" duration="23838000" />
-      <workItem from="1773490318979" duration="12706000" />
+      <workItem from="1773490318979" duration="13770000" />
+      <workItem from="1773523805444" duration="4397000" />
     </task>
     <servers />
   </component>
