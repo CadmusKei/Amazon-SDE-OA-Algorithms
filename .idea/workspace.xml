@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b68ef38d-31ce-4259-8c35-08483dbb14a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/PracticeGridMethods$Grid.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/PracticeGridMethods.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PracticeGridMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FrequencyAndGrouping.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/SlidingWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/SlidingWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/CountingAndFrequency.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/GridMethods$Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/GridMethods$Grid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/GridMethods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/GridMethods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/PracticeGridMethods$Grid.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/PracticeGridMethods.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CountingAndFrequency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GridMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GridMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PracticeGridMethods.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +61,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AmazonAlgos.executor": "Run",
+    "Application.CountingAndFrequency.executor": "Run",
+    "Application.FrequencyAndGrouping.executor": "Run",
     "Application.GridClassPractice.executor": "Run",
     "Application.GridTraversal.executor": "Run",
     "Application.IslandDFS.executor": "Run",
@@ -107,11 +114,22 @@
       <workItem from="1773423423774" duration="64000" />
       <workItem from="1773423512561" duration="367000" />
       <workItem from="1773424122717" duration="23838000" />
-      <workItem from="1773490318979" duration="8853000" />
+      <workItem from="1773490318979" duration="12706000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/FrequencyAndGrouping.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,26 +1,54 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-// Reminder: Add print neighbour method
-
 public class GridMethods {
 
-    private static class Grid {
+    public static void main(String[] args) {
+        Grid grid = new Grid();
 
+        System.out.println("=== CITY GRID ===");
+        grid.displayGrid();
+        System.out.println("  (0 = road, 1 = building, 2 = power station)");
+
+        System.out.println("\n=== POWER GRID SIMULATION (Multi-Source BFS) ===");
+        int powerTime = grid.timeToSpreadPower();
+        if (powerTime == -1) {
+            System.out.println("Some buildings cannot be reached by the power grid!");
+        } else {
+            System.out.println("All buildings powered in: " + powerTime + " minutes");
+        }
+
+        System.out.println("\n=== SUBURB ANALYSIS (DFS) ===");
+        int biggestSuburb = grid.biggestSuburb();
+        System.out.println("Biggest connected suburb: " + biggestSuburb + " buildings");
+
+        System.out.println("\n=== SHORTEST PATH DOWNTOWN (BFS) ===");
+        int travelTime = grid.timeDownTown();
+        if (travelTime == -1) {
+            System.out.println("No valid path to downtown exists!");
+        } else {
+            System.out.println("Fastest route downtown: " + travelTime + " steps");
+        }
+    }
+
+    private static class Grid {
         int[][] grid = {
-                {0, 0, 1, 0, 0},
-                {1, 0, 1, 0, 1},
-                {0, 0, 0, 0, 0},
-                {0, 1, 1, 1, 0},
-                {0, 0, 0, 1, 0}
+                {0,0,0,1,1,2,1},
+                {2,1,0,1,0,0,0},
+                {0,1,0,0,0,1,2},
+                {0,0,0,1,0,1,1},
+                {1,2,1,1,0,0,0},
         };
 
         int rows = grid.length;
         int cols = grid[0].length;
 
-        private void displayGrid() {
-
-            for (int i = 0; i < rows;i++) {
+        // =============================================
+        // DISPLAY: Prints the grid to the console
+        // =============================================
+        private void displayGrid(){
+            for (int i = 0; i < rows; i++) {
+                System.out.print("  ");
                 for (int j = 0; j < cols; j++) {
                     System.out.print(grid[i][j] + " ");
                 }
@@ -28,149 +56,123 @@ public class GridMethods {
             }
         }
 
-        private int maxIslandSize(){
-            int count = 0;
-            int max = 0;
-            int currentMax = 0;
-
+        // =============================================
+        // DFS: Finds the biggest connected island
+        // of buildings (1s and 2s) in the grid.
+        // Uses recursive DFS, marking visited cells
+        // as 0 to avoid revisiting.
+        // Time: O(n*m) | Space: O(n*m) recursion stack
+        // =============================================
+        private int biggestSuburb(){
+            int count = 0, max = 0;
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
-                    if (grid[i][j] == 1) {
+                    if (grid[i][j] == 1 || grid[i][j] == 2) {
                         count++;
                         max = Math.max(max, dfs(i, j));
                     }
                 }
             }
-            System.out.println("Number of Islands: " + count);
-            System.out.println();
+            System.out.println("Total suburbs found: " + count);
             return max;
         }
 
-        private int dfs(int i, int j){
+        private int dfs(int i, int j) {
             if (i < 0 || i >= rows || j < 0 || j >= cols || grid[i][j] == 0) return 0;
-
             grid[i][j] = 0;
-            return 1 + dfs(i -1, j) + dfs(i + 1, j) + dfs(i, j -1) + dfs(i, j + 1);
+            return 1 + dfs(i - 1, j) + dfs(i + 1, j) + dfs(i, j - 1) + dfs(i, j + 1);
         }
 
-        private int spreadZombies(){
+        // =============================================
+        // MULTI-SOURCE BFS: Simulates power spreading
+        // from multiple power stations (2s) simultaneously.
+        // Returns minutes until all buildings (1s) are
+        // powered, or -1 if some are unreachable.
+        // Time: O(n*m) | Space: O(n*m)
+        // =============================================
+        private int timeToSpreadPower() {
+            Queue<int[]> queue = new LinkedList<>();
+            boolean[][] visited = new boolean[rows][cols];
+            int buildings = 0, minutes = 0;
 
-            // Create Queue and additional variables
-            Queue<int[]> queue = new LinkedList<int[]>();
-            int humans = 0;
-            int minutes = 0;
-
-            // Show Original Grid
-            displayGrid();
-
-            // find Zombies
-            // Count humans
             for (int i = 0; i < rows; i++) {
-                for(int j = 0; j < cols; j++) {
-                    if (grid[i][j] == 2) queue.add(new int[]{i, j});
-                    if (grid[i][j] == 1) humans++;
+                for (int j = 0; j < cols; j++) {
+                    if (grid[i][j] == 2) {
+                        queue.add(new int[]{i, j});
+                        visited[i][j] = true;
+                    }
+                    if (grid[i][j] == 1) buildings++;
                 }
             }
 
-            // define direcrions
             int[] dr = {-1, 1, 0, 0};
             int[] dc = {0, 0, -1, 1};
 
-            //Start simulation!
-            // As long as queue isnt empty and there are humans to infect
-            while (!queue.isEmpty() && humans > 0) {
-                // While current snapshot of queue isnt empty, spread rot based on its current size
+            while (!queue.isEmpty() && buildings > 0) {
                 int size = queue.size();
                 for (int s = 0; s < size; s++) {
-
-                    // Store zombie coords
-                    int[] zombiePos = queue.poll();
-                    int r = zombiePos[0];
-                    int c = zombiePos[1];
+                    int[] stationPos = queue.poll();
+                    int r = stationPos[0];
+                    int c = stationPos[1];
 
                     for (int k = 0; k < 4; k++) {
-
-                        // Consult Zombie neighours
                         int nr = r + dr[k];
                         int nc = c + dc[k];
 
-                        // Infect valid neighbouring humans
-                        if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && grid[nr][nc] == 1) {
-                            grid[nr][nc] = 2;
-                            humans--;
+                        if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && !visited[nr][nc] && grid[nr][nc] == 1) {
+                            visited[nr][nc] = true;
                             queue.add(new int[]{nr, nc});
-                            displayGrid();
-                            System.out.println();
+                            buildings--;
                         }
                     }
                 }
                 minutes++;
             }
-            return humans == 0 ? minutes : -1;
+            return buildings == 0 ? minutes : -1;
         }
 
-        private int shortestPath(){
-
-            // Create queue and init steps
+        // =============================================
+        // SHORTEST PATH BFS: Finds the minimum steps
+        // to travel from top-left (0,0) to bottom-right
+        // corner through open roads (0s).
+        // Returns step count or -1 if no path exists.
+        // Time: O(n*m) | Space: O(n*m)
+        // =============================================
+        private int timeDownTown() {
             Queue<int[]> queue = new LinkedList<>();
-            int steps = 0;
-            // Keep track of visitors!
             boolean[][] visited = new boolean[rows][cols];
+            int time = 0;
 
-            // Make sure start and goal are valid.
-            if (grid[0][0] == 1 || grid[rows-1][cols-1] == 1) return -1;
+            if (grid[0][0] != 0 || grid[rows - 1][cols - 1] != 0) return -1;
 
-            // Vital Start steps.
-            // Add the top to queue for first wave
-            queue.add(new int[]{0,0});
-            // Mark as visited to stop backtracking (Minor effic)
+            queue.add(new int[]{0, 0});
             visited[0][0] = true;
 
-            // Set direction vairants
             int[] dr = {-1, 1, 0, 0};
             int[] dc = {0, 0, -1, 1};
 
             while (!queue.isEmpty()) {
                 int size = queue.size();
-
                 for (int s = 0; s < size; s++) {
-
-                    int[] currentPos = queue.poll();
-                    int r = currentPos[0];
-                    int c = currentPos[1];
-
-                    if (r == rows-1 && c == cols-1) return steps;
+                    int[] pos = queue.poll();
+                    int r = pos[0];
+                    int c = pos[1];
 
                     for (int k = 0; k < 4; k++) {
-
                         int nr = r + dr[k];
                         int nc = c + dc[k];
 
-                        if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && !visited[nr][nc] && grid[nr][nc] == 0) {
+                        if (r == rows - 1 && c == cols - 1) return time;
 
+                        if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && !visited[nr][nc] && grid[nr][nc] == 0) {
                             visited[nr][nc] = true;
                             queue.add(new int[]{nr, nc});
-
                         }
                     }
                 }
-                // After processing 1 layer
-                steps++;
+                time++;
             }
             return -1;
         }
-
-    }
-
-    public static void main(String[] args) {
-        Grid grid = new Grid();
-
-        grid.displayGrid();
-//        System.out.println(grid.maxIslandSize());
-//        int minutes = grid.spreadZombies();
-//        System.out.println("Map Infection took " + minutes + " minutes.");
-        int steps = grid.shortestPath();
-        System.out.println("The shortest path down from (0,0)  took: " + steps + " steps.");
-
     }
 }
