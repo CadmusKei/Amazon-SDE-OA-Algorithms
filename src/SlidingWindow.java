@@ -1,27 +1,27 @@
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
+import java.util.*;
 
 public class SlidingWindow {
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 1};
         int target = 11;
-        int minLen = minSubArrayLen(target, arr);
+        int max = longestUnqiueSubstrting("aweroaakjhagf");
+        System.out.println("Max " + max);
     }
 
-    // Find the max sum of a subarray with length k
-    private int maxSumOf(int[] arr, int k) {
-        int windowSum = 0;
-        int maxSum = 0;
-        for (int i = 0; i < k; i++)
-        {
+    // The classic max sum in k sized window problem
+    private static int maxSumOf(int[] arr, int k)
+    {
+        int windowSum = 0, maxSum = 0;
+        // Create first window
+        for (int i =0; i < k; i++) {
             windowSum += arr[i];
         }
+        // Initialise maxSum
         maxSum = windowSum;
-        for (int i = k; k < arr.length; i++)
-        {
-            windowSum = windowSum - arr[i - k] + arr[i];
+        // Find the max, Notice how we start after the first window (i=k) and compute the ends for efficiency
+        for (int i = k; i < arr.length; i++) {
+            windowSum = windowSum - arr[i-k] + arr[i];
             maxSum = Math.max(windowSum, maxSum);
         }
         return maxSum;
@@ -45,6 +45,7 @@ public class SlidingWindow {
 
     // This version shows how the above works and how we grow to the top first and then shrink the bottom.
     // (Think we quickly fill the bucket fast and then slowly remove the most we possibly can.)
+    // Here we are looking for a minimum so we use (and should recoginse) the patter - Shrink while still valid.
     public static int minSubArrayLen(int s, int[] nums) {
         int start = 0, sum = 0, minLen = Integer.MAX_VALUE;
 
@@ -72,34 +73,66 @@ public class SlidingWindow {
         return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
 
-    // Consult this again!!!!
+    // longest substring with k unique elements
+    // For maximums we use the - while invalid - structure.
+    private static int maxSubstring(String str, int k) {
+        if (str==null || str.equals("") || k <= 0) return 0;
+        // We need a map to count and see how many values of the integer exist
+        HashMap<Character, Integer> freqMap = new HashMap<>();
+        char[] arr = str.toCharArray();
+        int max = 0, start = 0;
 
-    private int[] SlidingWindowMax(int[] nums, int k) {
-
-        if (nums == null || nums.length == 0) return new int[]{};
-
-        int n = nums.length;
-        // This is an efficient way of making space for exact number of results there will be.
-        int[] result = new int[n - k + 1];
-
-        Deque<Integer> dq = new ArrayDeque<>();
-        int ri = 0;
-
-        for (int i = 0; i < n; i++) {
-
-            while (!dq.isEmpty() && dq.peekFirst() < i - k + 1) {dq.pollFirst();}
-
-            while (!dq.isEmpty() && nums[dq.peekLast()] < nums[i]) {
-                dq.pollLast();
+        // O(n) loop through the array once
+        for (int end = 0; end < arr.length; end++) {
+            // Increase the size of the window and keep track of what we're adding.
+            freqMap.put(arr[end], freqMap.getOrDefault(arr[end], 0) + 1);
+            // While invalid
+            while (freqMap.size() > k){
+                // Remove values from the front of the value
+                freqMap.put(arr[start], freqMap.get(arr[start]) - 1);
+                // Until none remain, then remove it from our map
+                if (freqMap.get(arr[start]) == 0) {
+                    freqMap.remove(arr[start]);
+                }
+                start++;
             }
-
-            dq.offerLast(i);
-
-            if (i >= k - 1) { result[ri++] = nums[dq.peekFirst()]; }
+            // Find max
+            max = Math.max(max, end - start + 1);
         }
+        return max;
+    }
 
-        return result;
+    // Longest string with no duplicate characters
+    private static int longestUnqiueSubstrting(String str) {
+        if (str==null || str.equals("")) return 0;
+        HashSet<Character> set = new HashSet<>();
+        char[] arr = str.toCharArray();
+        int start = 0, max  = 0;
 
+        for (int end = 0; end < arr.length; end++) {
+            while(set.contains(arr[end])) {
+                set.remove(arr[start]);
+                start++;
+            }
+            set.add(arr[end]);
+            max = Math.max(max, end - start + 1);
+        }
+        return max;
+    }
+
+    // Max consecutive 1s of a binary array with k allowed flips.
+    private static int longestBinarySubarray(int[] arr, int k) {
+        int start = 0, max = 0, zeroCount = 0;
+
+        for (int end = 0; end < arr.length; end++) {
+            if (arr[end] == 0) zeroCount++;
+            while (zeroCount > k) {
+                if (arr[start] == 0) zeroCount--;
+                start++;
+            }
+            max = Math.max(max, end-start+1);
+        }
+        return max;
     }
 
 

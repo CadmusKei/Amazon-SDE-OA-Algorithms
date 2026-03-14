@@ -95,24 +95,56 @@ public class Sketches {
     // ####### SLIDING WINDOW VARIANTS ####### //
 
     // The classic max sum in k sized window problem
-    private static int maxSumOf(int[] arr, int k)
-    {
-        int windowSum = 0, maxSum = 0;
-        // Create first window
-        for (int i =0; i < k; i++) {
+    private int maxSumWindow(int[] arr, int k ) {
+        int maxSum = 0, windowSum = 0;
+
+        for (int i = 0; i < k; i++){
             windowSum += arr[i];
         }
-        // Initialise maxSum
         maxSum = windowSum;
-        // Find the max, Notice how we start after the first window (i=k) and compute the ends for efficiency
-        for (int i = k; i < arr.length; i++) {
-           windowSum = windowSum - arr[i-k] + arr[i];
-           maxSum = Math.max(windowSum, maxSum);
+        for (int i = k; i < arr.length; i++)
+        {
+            windowSum = windowSum - arr[i-k] + arr[i];
+            maxSum = Math.max(windowSum, maxSum);
         }
         return maxSum;
     }
 
     // Most interviews will use dynamic windows which change size ot meet a criteria
+    private int minlength(int[] arr, int target) {
+        int sum = 0, start = 0, minLen = Integer.MAX_VALUE;
 
+        for (int end = 0; end < arr.length; end++) {
+            sum += arr[end];
+            while (sum >= target) {
+                minLen = Math.min(minLen, end - start);
+                sum -= arr[start];
+                start++;
+            }
+        }
+        return minLen == Integer.MAX_VALUE ? 0 : minLen;
+    }
+
+    // Max possible substring
+    private int maxSubarray(String str, int k) {
+        if (str==null || str.equals("") || k <= 0) return 0;
+        HashMap<Character, Integer> map = new HashMap<>();
+        char[] arr = str.toCharArray();
+        int start = 0, max = 0;
+
+        for (int end = 0; end < arr.length; end++) {
+            map.put(arr[end], map.getOrDefault(arr[end], 0) + 1);
+            while (map.size() > k)
+            {
+                map.put(arr[start], map.get(arr[start]) - 1);
+                if (map.get(arr[start]) == 0) {
+                    map.remove(arr[start]);
+                }
+                start++;
+            }
+            max = Math.max(max, end - start + 1);
+        }
+        return max;
+    }
 
 }
