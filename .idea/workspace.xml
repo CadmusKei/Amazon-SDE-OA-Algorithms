@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b68ef38d-31ce-4259-8c35-08483dbb14a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Prefix_practice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sketches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sketches.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SlidingWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlidingWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TwoSumArrayAndSubarray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TwoSumArrayAndSubarray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,40 +53,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AmazonAlgos.executor": "Run",
-    "Application.CountingAndFrequency.executor": "Run",
-    "Application.FrequencyAndGrouping.executor": "Run",
-    "Application.GridClassPractice.executor": "Run",
-    "Application.GridMethods.executor": "Run",
-    "Application.GridTraversal.executor": "Run",
-    "Application.IslandDFS.executor": "Run",
-    "Application.OrangeBFS.executor": "Run",
-    "Application.PracticeGridMethods.executor": "Run",
-    "Application.Sketches.executor": "Run",
-    "Application.SlidingWindow.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/Cadmus/Documents/Work/CS/Amazon-SDE-OA-Prep",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AmazonAlgos.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CountingAndFrequency.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FrequencyAndGrouping.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GridClassPractice.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GridMethods.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GridTraversal.executor&quot;: &quot;Run&quot;,
+    &quot;Application.IslandDFS.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OrangeBFS.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PracticeGridMethods.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Sketches.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SlidingWindow.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/Cadmus/Documents/Work/CS/Amazon-SDE-OA-Prep&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -109,7 +112,8 @@
       <workItem from="1773423512561" duration="367000" />
       <workItem from="1773424122717" duration="23838000" />
       <workItem from="1773490318979" duration="13770000" />
-      <workItem from="1773523805444" duration="4397000" />
+      <workItem from="1773523805444" duration="5253000" />
+      <workItem from="1773581720442" duration="2308000" />
     </task>
     <servers />
   </component>

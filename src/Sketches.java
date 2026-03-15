@@ -46,9 +46,6 @@ public class Sketches {
             set.add(num);
         }
         return count;
-        // k1 - k2 = target => target + k1 = k2;
     }
-
-
 
 }

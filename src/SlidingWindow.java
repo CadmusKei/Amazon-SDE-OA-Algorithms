@@ -45,7 +45,7 @@ public class SlidingWindow {
 
     // This version shows how the above works and how we grow to the top first and then shrink the bottom.
     // (Think we quickly fill the bucket fast and then slowly remove the most we possibly can.)
-    // Here we are looking for a minimum so we use (and should recoginse) the patter - Shrink while still valid.
+    // Here we are looking for a minimum so we use (and should recoginse) the pattern - Shrink while still valid.
     public static int minSubArrayLen(int s, int[] nums) {
         int start = 0, sum = 0, minLen = Integer.MAX_VALUE;
 

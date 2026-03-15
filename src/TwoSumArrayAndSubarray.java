@@ -79,6 +79,8 @@ public class TwoSumArrayAndSubarray {
         return uniqueSums.size();
     }
 
+    // PREFIX
+    // Check if a subarray sums to target
     public static boolean hasSubarraySum(int[] arr, int target) {
         HashMap<Integer, Integer> prefixSumMap = new HashMap<>();
         prefixSumMap.put(0, -1);
