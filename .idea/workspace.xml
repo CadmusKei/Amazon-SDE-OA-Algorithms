@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b68ef38d-31ce-4259-8c35-08483dbb14a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Prefix_practice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Greedy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sketches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sketches.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SlidingWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SlidingWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TwoSumArrayAndSubarray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TwoSumArrayAndSubarray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/Sketches.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/Sketches.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/TwoSumArrayAndSubarray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Amazon-SDE-OA-Prep/TwoSumArrayAndSubarray.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +57,7 @@
     &quot;Application.AmazonAlgos.executor&quot;: &quot;Run&quot;,
     &quot;Application.CountingAndFrequency.executor&quot;: &quot;Run&quot;,
     &quot;Application.FrequencyAndGrouping.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Greedy.executor&quot;: &quot;Run&quot;,
     &quot;Application.GridClassPractice.executor&quot;: &quot;Run&quot;,
     &quot;Application.GridMethods.executor&quot;: &quot;Run&quot;,
     &quot;Application.GridTraversal.executor&quot;: &quot;Run&quot;,
@@ -113,7 +113,10 @@
       <workItem from="1773424122717" duration="23838000" />
       <workItem from="1773490318979" duration="13770000" />
       <workItem from="1773523805444" duration="5253000" />
-      <workItem from="1773581720442" duration="2308000" />
+      <workItem from="1773581720442" duration="2451000" />
+      <workItem from="1773643131330" duration="634000" />
+      <workItem from="1773653313520" duration="379000" />
+      <workItem from="1773835535511" duration="21000" />
     </task>
     <servers />
   </component>
