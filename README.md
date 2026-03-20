@@ -14,7 +14,7 @@ Examples of topics include:
 
 * Sliding Window
 * Counting
-* PREFIX sum
+* PREFIX sum    
 * Grid Methods
 * Greedy Algorithms
 
