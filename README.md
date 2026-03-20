@@ -1,1 +1,1 @@
-# Amazon-SDE-OA-Algorithms
+# CIQ-Java
