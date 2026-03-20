@@ -14,7 +14,7 @@ Examples of topics include:
 
 * Sliding Window
 * Counting
-* Sorting Techniques
+* PREFIX sum
 * Grid Methods
 * Greedy Algorithms
 
